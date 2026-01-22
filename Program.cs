@@ -27,6 +27,12 @@ static void PlaySound(string file)
     { 38, "Samples/snare.wav" },
     { 42, "Samples/hihat_closed.wav" },
     { 46, "Samples/hihat_open.wav" },
+    { 44, "Samples/hihat_pedal.wav" },
+    { 51, "Samples/ride.wav" },
+    { 48, "Samples/tom1.wav" },
+    { 45, "Samples/tom2.wav" },
+    { 43, "Samples/tom3.wav" },
+
     { 49, "Samples/crash.wav" }
 };
 
@@ -51,7 +57,7 @@ static void PlaySound(string file)
             if (e.MidiEvent is NoteOnEvent noteOn && noteOn.Velocity > 0)
             {
                 Console.WriteLine(
-                        $"MISSING Note: {noteOn.NoteNumber}, Velocity: {noteOn.Velocity}");
+                        $"Playing Note: {noteOn.NoteNumber}, Velocity: {noteOn.Velocity}");
 
                 if (drumMap.TryGetValue(noteOn.NoteNumber, out var sound))
                 {
